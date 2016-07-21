@@ -1,0 +1,31 @@
+{
+  "name": "mocha-test",
+  "version": "1.0.0",
+  "description": "A custom element for running mocha tests",
+  "main": "mocha-test.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/matthewp/mocha-test.git"
+  },
+  "keywords": [
+    "web-components",
+    "mocha"
+  ],
+  "files": [
+    "mocha-test.html"
+  ],
+  "author": "Matthew Phillips",
+  "license": "BSD-2-Clause",
+  "bugs": {
+    "url": "https://github.com/matthewp/mocha-test/issues"
+  },
+  "homepage": "https://github.com/matthewp/mocha-test#readme",
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "mocha": "^2.5.3",
+    "webcomponents.js": "^0.7.22"
+  }
+}

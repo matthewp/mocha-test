@@ -1,0 +1,22 @@
+<!doctype html>
+<html>
+<head>
+  <title>mocha-test tests</title>
+  <script src="../node_modules/webcomponents.js/webcomponents-lite.js"></script>
+  <link rel="import" href="../mocha-test.html">
+</head>
+<body>
+<mocha-test mocha-path="../node_modules/mocha"
+  chai-path="../node_modules/chai">
+<template>
+  <script>
+    describe('mocha-path and chai-path', function(){
+      it('works', function(){
+        assert.ok(true);
+      });
+    });
+  </script>
+</template>
+</mocha-test>
+</body>
+</html>

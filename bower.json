@@ -1,0 +1,22 @@
+{
+  "name": "mocha-test",
+  "version": "1.0.0",
+  "homepage": "https://github.com/matthewp/mocha-test",
+  "authors": [
+    "Matthew Phillips <matthew@matthewphillips.info>"
+  ],
+  "description": "A custom element for running mocha tests",
+  "main": "mocha-test.html",
+  "keywords": [
+    "web-components",
+    "mocha"
+  ],
+  "license": "BSD-2-Clause",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

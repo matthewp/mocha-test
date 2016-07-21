@@ -66,7 +66,7 @@
       if(pth) {
         return pth;
       }
-      var baseURI = this.ownerDocument.baseURI;
+      var baseURI = doc.baseURI;
       var url = new URL(def, baseURI);
       return url.toString();
     }

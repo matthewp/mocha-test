@@ -23,9 +23,11 @@
     "url": "https://github.com/matthewp/mocha-test/issues"
   },
   "homepage": "https://github.com/matthewp/mocha-test#readme",
-  "devDependencies": {
+  "dependencies": {
     "chai": "^3.5.0",
-    "mocha": "^2.5.3",
+    "mocha": "^2.5.3"
+  },
+  "devDependencies": {
     "webcomponents.js": "^0.7.22"
   }
 }

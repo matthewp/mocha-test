@@ -6,6 +6,7 @@
 (function(){
   var doc = (document._currentScript || document.currentScript).ownerDocument;
   var template = doc.querySelector('template');
+  var filter = Array.prototype.filter;
 
   class MochaTest extends HTMLElement {
     connectedCallback() {
@@ -39,14 +40,30 @@
         mocha.setup(this.ui);
         // Append the user script
         let frag = document.importNode(scriptTemplate.content, true);
+        let scripts = filter.call(frag.childNodes, function(el){
+          return el.tagName === 'SCRIPT';
+        });
+        let scriptPromises = scripts.map(function(script){
+          if(script.src) {
+            return new Promise(function(resolve, reject){
+              script.addEventListener('load', function() { resolve(); });
+              script.addEventListener('error', reject);
+            });
+          } else {
+            return Promise.resolve();
+          }
+        });
+
         this.replaceChild(frag, scriptTemplate);
 
+        return Promise.all(scriptPromises);
+      }.bind(this)).then(function(){
         if(window.Testee) {
           Testee.init();
         }
 
         mocha.run();
-      }.bind(this));
+      });
 
       [ mochaScript, chaiScript, mochaLink ].forEach(function(el){
         this.appendChild(el);

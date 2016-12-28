@@ -8,6 +8,11 @@
   var template = doc.querySelector('template');
   var filter = Array.prototype.filter;
 
+  function isModuleScript(script) {
+    var type = script.type;
+    return type === 'module' || type === 'module-polyfill';
+  }
+
   class MochaTest extends HTMLElement {
     connectedCallback() {
       if(!this.hasSetup) {
@@ -44,7 +49,7 @@
           return el.tagName === 'SCRIPT';
         });
         let scriptPromises = scripts.map(function(script){
-          if(script.src) {
+          if(script.src || isModuleScript(script)) {
             return new Promise(function(resolve, reject){
               script.addEventListener('load', function() { resolve(); });
               script.addEventListener('error', reject);

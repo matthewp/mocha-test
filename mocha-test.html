@@ -16,8 +16,16 @@
   class MochaTest extends HTMLElement {
     connectedCallback() {
       if(!this.hasSetup) {
-        this.hasSetup = true;
-        this._setup();
+        if(this.childNodes.length) {
+          this.hasSetup = true;
+          this._setup();
+        } else {
+          var mo = new MutationObserver(function(mutations){
+            mo.disconnect();
+            this.connectedCallback();
+          }.bind(this));
+          mo.observe(this, { childList: true });
+        }
       }
     }
 
